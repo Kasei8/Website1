@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+<title>Portfolio and Blog</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            display: flex;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0;
+        }
+        h3 {
+            font-size: 20px;
+            color: #333;
+            margin-top: 0;
+        }
+        p {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ff3366, #6633ff); /* Gradient using the color code provided */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease; /* Smooth hover effect */
+        }
+               .about-section {
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Deep shadow effect */
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px 10px 0 0;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .price {
+            font-size: 20px;
+            color: #ff3366;
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            right: -200px; /* Initially hidden */
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 20px;
+            transition: right 0.5s ease;
+        }
+        .navbar a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .nav-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff3366, #6633ff); /* Button gradient */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .flame {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('flame.png') no-repeat center center / contain;
+            opacity: 0;
+            pointer-events: none;
+            animation: flame-animation 5s infinite;
+        }
+        @keyframes flame-animation {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        .show-nav .navbar {
+            right: 0;
+        }
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .cta-btn {
+                font-size: 14px;
+                padding: 8px 16px; /* Adjust button padding for smaller screens */
+            }
+            .navbar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .navbar a {
+                float: left;
+            }
+            .container {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#blog">Blog</a>
+    </div>
+
+    <button class="nav-btn" onclick="toggleNav()">☰</button>
+    <div class="container">
+        <!-- Home Section -->
+        <section id="home">
+        <div class="hero-content">
+            <h1>Welcome to Our Website</h1>
+            <p>Discover amazing content and features.</p>
+            <a href="https://drive.google.com/file/d/1odzMpGy1XSI530YzkE9dGPAkVCOWs6BQ/view?usp=sharing" class="video-button">
+                <video autoplay loop muted playsinline class="video">
+                    <source src="https://drive.google.com/file/d/1odzMpGy1XSI530YzkE9dGPAkVCOWs6BQ/view?usp=sharing" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </a>
+        </div>
+    </section>
+
+        <!-- About Section -->
+       <!-- About Section -->
+<div id="about" class="about-section">
+    <h2>About Me</h2>
+    <!-- Paragraph with reveal effect -->
+    <p class="reveal">Hey there, welcome to Empowered Phoenix LLC – where I’m on a mission to redefine email design, one pixel at a time! Here’s the scoop: I’m all about embracing challenges and approaching them from my own unique angle. How did I stumble upon email design, you wonder? Well, it all started with my insatiable curiosity. I'm the type who loves delving into research, uncovering the hidden gems that make email designs shine. Now, let me tell you about the thrill of it all. Picture this: spending hours tinkering with a seemingly simple email layout. It might sound a bit wild, but trust me, there's nothing quite like that moment when it all clicks into place. I thrive on understanding the why behind every aspect of email design. Why does this color scheme work better than that one? Why does this font make a stronger impact? It's like solving a puzzle – each piece fitting perfectly into the next. Sure, there are moments when I feel like throwing in the towel. But hey, challenges are what keep things interesting, right? I’m here to push boundaries, to explore new possibilities, and to deliver email designs that exceed expectations. So, if you're all about creating unforgettable experiences for your audience, you're in the right place. Here at Empowered Phoenix, I'm ready to roll up my sleeves and bring your email design visions to life. Thanks for swinging by my page. Take a peek at my portfolio, and let's chat about how we can elevate your brand through stunning email designs!</p>
+</div>
+   <style>
+    /* CSS for reveal animation */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .revealed {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // JavaScript to trigger reveal animation when paragraph comes into view
+    document.addEventListener('DOMContentLoaded', function() {
+        window.addEventListener('scroll', revealParagraph);
+
+        function revealParagraph() {
+            var revealParagraph = document.querySelector('.reveal');
+            var revealPosition = revealParagraph.getBoundingClientRect().top;
+            var windowHeight = window.innerHeight;
+
+            if (revealPosition < windowHeight / 1.5) {
+                revealParagraph.classList.add('revealed');
+                window.removeEventListener('scroll', revealParagraph);
+            }
+        }
+
+        revealParagraph(); // Trigger reveal initially if paragraph is already in view
+    });
+</script>
+ <div id="portfolio" class="section">
+        <h2>Portfolio</h2>
+        <!-- Placeholder for Project 1 -->
+        <div class="card">
+            <img src="project1-image-url.jpg" alt="Project 1 Image">
+            <div class="card-content">
+                <h3>Promotional Email Design</h3>
+                <p>Description of Project 1 goes here.</p>
+                <a href="https://kasei8.github.io/promoemaildesign/" class="cta-btn">View Project</a>
+            </div>
+        </div>
+        <!-- Placeholder for Project 2 -->
+        <div class="card">
+            <img src="project2-image-url.jpg" alt="Project 2 Image">
+            <div class="card-content">
+                <h3>Project 2 Title</h3>
+                <p>Description of Project 2 goes here.</p>
+                <a href="https:https://kasei8.github.io/Email/" class="cta-btn">View Project</a>
+            </div>
+        </div>
+        <!-- Add more projects as needed -->
+ <!-- Placeholder for Project 3 -->
+        <div class="card">
+            <img src="project3-image-url.jpg" alt="Project 3 Image">
+            <div class="card-content">
+                <h3>Restaurant Welcome Email Design</h3>
+                <p>Designed to illustrate that the sun is starting to peek through the clouds so it is time for a deal!<ul><li>Bright, captivating colors. <li>Interactive Design. <li>It's easy to see why this stands out so.</p>
+                <a href="https://kasei8.github.io/Restaurant-Welcome-Email/" class="cta-btn">View Project</a>
+            </div>
+        </div>
+
+    </div>
+ <!-- Placeholder for Project 4 -->
+        <div class="card">
+            <img src="project3-image-url.jpg" alt="Project 4 Image">
+            <div class="card-content">
+                <h3>Retail Summer Time Discount Email Design</h3>
+                <p>Description of Project 4 goes here.</p>
+                <a href="https://kasei8.github.io/Retailsummeremailpromo/" class="cta-btn">View Project</a>
+            </div>
+        </div>
+
+
+
+    <!-- Blog Section -->
+    <div id="blog" class="section">
+        <h2>Blog</h2>
+        <!-- Placeholder for Blog Post 1 -->
+        <div class="card">
+            <h3>Blog Post 1 Title</h3>
+            <p>Description of Blog Post 1 goes here.</p>
+            <a href="#" class="cta-btn">Read More</a>
+        </div>
+        <!-- Placeholder for Blog Post 2 -->
+        <div class="card">
+            <h3>Blog Post 2 Title</h3>
+            <p>Description of Blog Post 2 goes here.</p>
+            <a href="#" class="cta-btn">Read More</a>
+        </div>
+        <!-- Add more blog posts as needed -->
+    </div>
+</div>
+
+<script>
+    function toggleNav() {
+        document.body.classList.toggle('show-nav');
+        triggerFlame();
+    }
+
+    function triggerFlame() {
+        const flame = document.createElement('div');
+        flame.className = 'flame';
+        document.body.appendChild(flame);
+
+        flame.style.top = `${Math.random() * window.innerHeight}px`;
+        flame.style.left = `${Math.random() * window.innerWidth}px`;
+
+        setTimeout(() => {
+            document.body.removeChild(flame);
+        }, 1000);
+    }
+
+    // Additional script to create flames every 5 seconds
+    setInterval(triggerFlame, 5000);
+</script>
+</body>
+</html>
