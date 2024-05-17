@@ -12,11 +12,13 @@ body, h1, p, a {
 /* Styles for the hero section */
 #home {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f5f5f5;  /* Adjust background color as needed */
     text-align: center;
+    position: relative;
 }
 
 .hero-content {
@@ -43,11 +45,40 @@ body, h1, p, a {
 
 .video {
     display: block;
-    width: 150px;  /* Adjust size as needed */
+    width: 300px;  /* Adjust size as needed */
     height: auto;
     pointer-events: none;  /* Ensures the video doesn't block clicks */
+     transition: all 0.3s ease;  /* Smooth transition for resizing */
 }
 
 .video-button:hover .video {
     opacity: 0.8;  /* Example hover effect */
+}
+/* Styles for the scroll indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+}
+
+.scroll-indicator p {
+    font-size: 1em;
+    margin: 0;
+}
+
+.scroll-indicator .arrow-down {
+    font-size: 2em;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
 }
