@@ -70,6 +70,26 @@ body, h1, p, a {
     font-size: 2em;
     animation: bounce 1s infinite;
 }
+/* Styles for the scroll element */
+#scroll-element {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-up-hidden {
+    opacity: 0;
+}
+
+.scroll-up-visible {
+    opacity: 1;
+}
+
 
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
