@@ -10,3 +10,20 @@ document.addEventListener('DOMContentLoaded', function() {
         video.style.pointerEvents = 'auto';  // Allow interaction with the video
     });
 });
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scroll down
+        document.getElementById('scroll-element').classList.add('scroll-up-hidden');
+        document.getElementById('scroll-element').classList.remove('scroll-up-visible');
+    } else {
+        // Scroll up
+        document.getElementById('scroll-element').classList.add('scroll-up-visible');
+        document.getElementById('scroll-element').classList.remove('scroll-up-hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}, false);
