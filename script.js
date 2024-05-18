@@ -1,29 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const videoButton = document.querySelector('.video-button');
+    const videoButton = document.getElementById('video-button');
     const video = document.getElementById('hero-video');
 
-    videoButton.addEventListener('click', function(event) {
-        event.preventDefault();  // Prevent the default action of the link
-        video.muted = false;  // Unmute the video
-        video.play();  // Play the video with sound
-        video.style.width = '600px';  // Increase the size of the video
-        video.style.pointerEvents = 'auto';  // Allow interaction with the video
-    });
-});
-let lastScrollTop = 0;
-
-window.addEventListener("scroll", function() {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-        // Scroll down
-        document.getElementById('scroll-element').classList.add('scroll-up-hidden');
-        document.getElementById('scroll-element').classList.remove('scroll-up-visible');
-    } else {
-        // Scroll up
-        document.getElementById('scroll-element').classList.add('scroll-up-visible');
-        document.getElementById('scroll-element').classList.remove('scroll-up-hidden');
+    // Function to play video with sound and increase size
+    function playVideo() {
+        video.muted = false; // Unmute the video
+        video.play();
+        video.style.width = '600px';
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-}, false);
+    // Event listener to play video when clicked
+    videoButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        playVideo();
+    });
+
+    // Function to handle scrolling behavior
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', function() {
+        let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (currentScroll > lastScrollTop) {
+            // Scroll down
+            video.pause();
+        } else {
+            // Scroll up
+            playVideo();
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+});
